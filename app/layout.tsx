@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     description: "Descoperă rețete delicioase pentru orice ocazie.",
     images: ["/og-image.jpg"],
   },
+  other: {
+    "google-adsense-account": "ca-pub-2380500198060818",
+  },
 };
 
 export default function RootLayout({
