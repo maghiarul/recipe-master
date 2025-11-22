@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base layout tweaks */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fafafa;
+  color: #18181b;
 }
+
+main {
+  padding-bottom: 3rem;
+}
+
+/* Recipe content styles (magazine-like) */
+.recipe-content {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #3f3f46;
+}
+
+.recipe-content h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #18181b;
+  letter-spacing: -0.02em;
+}
+
+.recipe-content h3 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #27272a;
+}
+
+.recipe-content p {
+  margin-bottom: 0.75rem;
+}
+
+.recipe-content ul {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  list-style-type: disc;
+}
+
+.recipe-content ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  list-style-type: decimal;
+}
+
+.recipe-content li {
+  margin-bottom: 0.25rem;
+}
+
+.recipe-content strong {
+  font-weight: 600;
+  color: #18181b;
+}
+
+.recipe-content a {
+  color: #ea580c;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Print styles */
+@media print {
+  header,
+  footer,
+  .print-hidden,
+  .ad,
+  .ad-placeholder {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .recipe-content {
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  .recipe-content h2,
+  .recipe-content h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
+
